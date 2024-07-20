@@ -1,12 +1,10 @@
-# No PasswordAuthentication using puppet
-# SSH configuration file
-file { '/etc/ssh/ssh_config':
-  owner   => 'root',
-  group   => 'root',
-  mode    => '0644',
-  content => "
-    Host *
-      IdentityFile ~/.ssh/school
-      PasswordAuthentication no
-  ",
+# Client configuration file with Puppet
+file_line { 'Turn_off_passwd_auth':
+  path    => '/etc/ssh/ssh_config',
+  line    => 'PasswordAuthentication no',
+}
+
+file_line { 'Declare_identity_file':
+  path    => '/etc/ssh/ssh_config',
+  line    => 'IdentityFile ~/.ssh/school',
 }

@@ -1,10 +1,4 @@
-#!/usr/bin/env bash
-# SSH client configuration
-# configured to use the private key ~/.ssh/school
-Include /etc/ssh/ssh_config.d/*.conf
-Host *
-    SendEnv LANG LC_*
-    HashKnownHosts yes
-    GSSAPIAuthentication yes
+# Configuring ssh client so that I can connect to the server without typing a password.
+Host 54.196.216.8
     IdentityFile ~/.ssh/school
     PasswordAuthentication no
